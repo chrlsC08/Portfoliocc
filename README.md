@@ -1,55 +1,57 @@
 ![alt text](images/ARCdiagramimag.png)
 
-The Cloud Resume Challenge - AWS
-NEW: Check out the new 2024 edition of the Cloud Resume Challenge Guidebook for AWS!
-1. Certification
-Your resume needs to have the AWS Cloud Practitioner certification on it. This is an introductory certification that orients you on the industry-leading AWS cloud – if you have a more advanced AWS cert, that’s fine but not expected. You can sit this exam online for $100 USD.
+🚀 The Cloud Resume Challenge - AWS Edition
 
-NEW: Pluralsight, a Cloud Resume Challenge sponsor, has a helpful Cloud Practitioner prep course. They’ve given us a special 30-day free trial of their Premium plan, which should be enough time to study for and pass the exam - use this link to get your free 30 days.
+🌟 NEW for 2024: Check out the latest Cloud Resume Challenge Guidebook for AWS with updated content and tips!
+What Is the Cloud Resume Challenge?
+The Cloud Resume Challenge is more than just a task – it’s your gateway to cloud mastery. This hands-on project takes you from deploying a personal resume website to showcasing real cloud skills using AWS services. Ready to prove you can handle cloud infrastructure, APIs, and automation? Let's dive in!
 
-2. HTML
-Your resume needs to be written in HTML. Not a Word doc, not a PDF. Here is an example of what I mean.
+🏅 Certification
+Your cloud resume starts with validation: the AWS Cloud Practitioner certification. This entry-level cert orients you with AWS, setting you up for success in cloud computing. If you’ve already got a more advanced cert, great! Otherwise, you can take the exam online for just $100 USD.
 
-3. CSS
-Your resume needs to be styled with CSS. No worries if you’re not a designer – neither am I. It doesn’t have to be fancy. But we need to see something other than raw HTML when we open the webpage.
+Pro Tip: Get started with the Cloud Practitioner certification using a 30-day free trial from Pluralsight! Study up with this special offer and pass your cert in no time. Get it here.
 
-4. Static Website
-Your HTML resume should be deployed online as an Amazon S3 static website. Services like Netlify and GitHub Pages are great and I would normally recommend them for personal static site deployments, but they make things a little too abstract for our purposes here. Use S3.
+💻 Your Tech-Enhanced Resume
+This challenge isn't about static Word docs or PDFs—your resume lives in HTML and CSS. Whether you're a design pro or just getting started, your resume will be styled and deployed for the web.
 
-5. HTTPS
-The S3 website URL should use HTTPS for security. You will need to use Amazon CloudFront to help with this.
+HTML: Craft your resume as a web page. Think of it as a living, breathing document!
+CSS: Add some styling to give your resume a personal touch.
+🌐 Get Your Resume Online
+Your resume will be deployed as a static website on AWS using Amazon S3. Forget about third-party platforms like Netlify or GitHub Pages—this challenge is all about learning AWS services firsthand!
 
-6. DNS
-Point a custom DNS domain name to the CloudFront distribution, so your resume can be accessed at something like my-c00l-resume-website.com. You can use Amazon Route 53 or any other DNS provider for this. A domain name usually costs about ten bucks to register.
+🔒 Secure with HTTPS
+Use Amazon CloudFront to add HTTPS to your S3-hosted site, ensuring secure access to your resume.
 
-7. Javascript
-Your resume webpage should include a visitor counter that displays how many people have accessed the site. You will need to write a bit of Javascript to make this happen. Here is a helpful tutorial to get you started in the right direction.
+🏷️ Custom Domain Name
+A professional cloud resume needs a memorable domain. Use Amazon Route 53 or any DNS provider to set up a custom domain, making your resume accessible at something like my-awesome-resume.com.
 
-8. Database
-The visitor counter will need to retrieve and update its count in a database somewhere. I suggest you use Amazon’s DynamoDB for this. (Use on-demand pricing for the database and you’ll pay essentially nothing, unless you store or retrieve much more data than this project requires.) Here is a great free course on DynamoDB.
+📊 Add Some Interactivity – Javascript & Visitor Counter
+Make your resume dynamic with a visitor counter! You'll write some JavaScript to track how many people have viewed your site. But wait, it’s not just a front-end trick—this data will live in a database.
 
-9. API
-Do not communicate directly with DynamoDB from your Javascript code. Instead, you will need to create an API that accepts requests from your web app and communicates with the database. I suggest using AWS’s API Gateway and Lambda services for this. They will be free or close to free for what we are doing.
+🗄️ Database: Store Visitor Counts in DynamoDB
+Your visitor counter needs somewhere to store its data. Enter Amazon DynamoDB! With on-demand pricing, you'll pay next to nothing while learning how to interact with cloud databases.
 
-10. Python
-You will need to write a bit of code in the Lambda function; you could use more Javascript, but it would be better for our purposes to explore Python – a common language used in back-end programs and scripts – and its boto3 library for AWS. Here is a good, free Python tutorial.
+🔗 Build an API to Connect Front-End and Back-End
+Your visitor counter shouldn’t communicate with DynamoDB directly. Instead, use API Gateway and AWS Lambda to build a secure, scalable API that handles requests from your JavaScript code.
 
-11. Tests
-You should also include some tests for your Python code. Here are some resources on writing good Python tests.
+🐍 Python and boto3 for Lambda Functions
+The serverless magic happens in AWS Lambda. Use Python and the boto3 library to interact with AWS services and implement your backend logic. Even if you're new to Python, this is a great opportunity to learn!
 
-12. Infrastructure as Code
-You should not be configuring your API resources – the DynamoDB table, the API Gateway, the Lambda function – manually, by clicking around in the AWS console. Instead, define them in an AWS Serverless Application Model (SAM) template and deploy them using the AWS SAM CLI. This is called “infrastructure as code” or IaC. It saves you time in the long run.
+✅ Test Your Code
+Your Lambda functions should come with unit tests. Write some Python tests to ensure your functions work correctly. Test-driven development is a key skill for cloud engineers!
 
-Note: A more broadly applicable and commonly-used IaC tool in the industry is Terraform. It’s a little less straightforward to use than SAM for an AWS serverless API, but many people prefer to use it for their project anyway. If you want to use Terraform instead of SAM, follow this guide.
+🚀 Infrastructure as Code (IaC)
+Forget manual configuration—everything should be automated! Use AWS Serverless Application Model (SAM) to define your API resources (DynamoDB, Lambda, API Gateway) as code and deploy them using the AWS SAM CLI.
 
-13. Source Control
-You do not want to be updating either your back-end API or your front-end website by making calls from your laptop, though. You want them to update automatically whenever you make a change to the code. (This is called continuous integration and deployment, or CI/CD.) Create a GitHub repository for your backend code.
+Want more flexibility? Many people use Terraform instead of SAM. If you'd like a challenge, try building the infrastructure with Terraform!
 
-14. CI/CD (Back end)
-Set up GitHub Actions such that when you push an update to your Serverless Application Model template or Python code, your Python tests get run. If the tests pass, the SAM application should get packaged and deployed to AWS.
+🗂️ Source Control and CI/CD
+No more manual updates! Set up GitHub Actions to automate deployments. Push changes to your code, and let GitHub run your tests and deploy updates automatically.
 
-15. CI/CD (Front end)
-Create a second GitHub repository for your website code. Create GitHub Actions such that when you push new website code, the S3 bucket automatically gets updated. (You may need to invalidate your CloudFront cache in the code as well.) Important note: DO NOT commit AWS credentials to source control! Bad hats will find them and use them against you!
+Back-End: Set up CI/CD so every update to your Python code and SAM templates gets automatically tested and deployed to AWS.
+Front-End: Set up a second GitHub repo for your HTML/CSS resume. Use GitHub Actions to automatically update your S3 bucket and invalidate your CloudFront cache on every push.
+✍️ Blog Post
+Finally, share your journey! Write a blog post on platforms like Dev.to or Hashnode about what you’ve learned during this challenge. Link it directly from your resume to show off your newfound cloud skills!
 
-16. Blog post
-Finally, in the text of your resume, you should link a short blog post describing some things you learned while working on this project. Dev.to or Hashnode are great places to publish if you don’t have your own blog.
+🎯 Get Started Today!
+Ready to challenge yourself and launch your cloud career? The Cloud Resume Challenge is your blueprint for building, deploying, and automating a cloud-powered project, step by step.
