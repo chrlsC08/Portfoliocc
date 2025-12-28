@@ -1,4 +1,4 @@
-![alt text](images/ARCdiagramimag.png)
+![alt text](frontend/images/ARCdiagramimag.png)
 
 The Azure Cloud Resume Challenge
 Welcome to the Azure Cloud Resume Challenge – where cloud knowledge meets real-world application! This hands-on project guides you through building and deploying a personal resume website using key Azure services. It’s your chance to prove your skills in cloud infrastructure, automation, and modern web development – all while showcasing your resume.
