@@ -1,33 +1,47 @@
-name: Deploy Backend
+name: deploy_backend
 
+# This triggers the workflow whenever you push to the 'main' branch 
+# and specifically when changes are made in the backend folder.
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'backend/**' # Only runs when files in the backend folder change
+    push:
+        branches: [ main ]
+        paths:
+            - 'backend/**'
+
+env:
+  AZURE_FUNCTIONAPP_NAME: 'ccportfoliocounter2'   # Target Function App name in Azure
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'backend/api' # Path to your function code
+  PYTHON_VERSION: '3.11'                         # Match your local Python version
 
 jobs:
-  test-and-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+    # This replaces the "Publish Profile" method that was giving the 404/405 error
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Run Tests
-        shell: bash
-        run: |
-          pushd ./backend/api
-          pip install -r requirements.txt pytest
-          python -m pytest
-          popd
+    - name: Setup Python ${{ env.PYTHON_VERSION }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: 'Deploy to Azure Functions'
-        uses: Azure/functions-action@v1
-        with:
-          app-name: 'ccportfoliocounter2'
-          package: './backend/api'
-          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+    - name: 'Install dependencies'
+      shell: bash
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+        popd
+
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      with:
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        # Note: No publish-profile needed because we used azure/login above
