@@ -7,8 +7,8 @@ import os
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
-@app.route(route="CCPortfolioCounter")
-def CCPortfolioCounter(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="GetPortfolioCounter")
+def GetPortfolioCounter(req: func.HttpRequest) -> func.HttpResponse:
    try:
        conn = os.environ["AzurePortfolioConnectionString"]
        database_name = "AzurePortfolio"

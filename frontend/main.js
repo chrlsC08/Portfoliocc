@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded' , (event) =>{
     getVisitCount();
 })
 
-const functionApiURL = 'https://ccportfoliocounter.azurewebsites.net/api/CCPortfolioCounter';
+const functionApiURL = 'https://ccportfoliocounter.azurewebsites.net/api/GetPortfolioCounter';
 const functionApiLocal  = 'http://localhost:7071/api/CCPortfolioCounter';
 const getVisitCount = () => {
     let count = 30;
