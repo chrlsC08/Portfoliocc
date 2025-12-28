@@ -4,5 +4,7 @@
     "azureFunctions.projectLanguage": "Python",
     "azureFunctions.projectRuntime": "~4",
     "azureFunctions.projectLanguageModel": 2,
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "azureFunctions.pythonVenv": ".ven",
+    "debug.internalConsoleOptions": "neverOpen"
 }
