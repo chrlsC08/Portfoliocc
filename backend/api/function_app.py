@@ -5,7 +5,7 @@ import json
 import os
 
 
-app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 @app.route(route="CCPortfolioCounter2")
 def CCPortfolioCounter2(req: func.HttpRequest) -> func.HttpResponse:
