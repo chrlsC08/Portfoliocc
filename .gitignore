@@ -1,0 +1,15 @@
+# Local terraform secrets
+**/*.tfvars
+**/*.tfvars.json
+terraform.tfvars
+
+# Local terraform state
+**/*.tfstate
+**/*.tfstate.*
+
+# Terraform binaries
+**/.terraform/
+.terraform.lock.hcl
+
+# Azure export leftovers
+aztfexport*
