@@ -41,27 +41,50 @@
 						<header>
 							<h2>About Me</h2>
 							<p>Hi, I'm Charles Cunningham Jr.<br />
-								Currently working as a Project Engineer<br />
 								</p>
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
 
+									
+								<h3>Projects</h3>
+								<h4>Azure Serverless Portfolio & DevOps Pipeline</h4>
+								<p>Deployed an Azure Serverless Portfolio & DevOps Pipeline. Built as a capstone to the Cloud Resume Challenge, this project is a production-grade, end-to-end serverless 
+									application hosted on Azure. The architecture features a static website—developed with HTML/CSS and hosted via Azure Storage—and a global delivery layer managed through 
+									Azure Front Door for high availability and HTTPS security. The backend utilizes a Python-based Azure Function API that securely interacts with a Cosmos DB NoSQL database 
+									to manage real-time visitor tracking. To ensure code reliability, I implemented unit testing using Pytest to validate logic before deployment.</p>
+									
+								<p>Moving beyond manual configuration, I managed the entire environment as Infrastructure as Code (IaC) using Terraform. I refactored initial resource exports into a modular, 
+									multi-folder structure that separates two resource groups, utilizing variables for enhanced security and portability. To enable a professional DevOps workflow, I migrated 
+									the Terraform state from a local environment to a Remote Backend in Azure Blob Storage. This centralized the "source of truth," ensuring that my local development environment 
+									in VS Code stays perfectly synced with Azure. Currently, I use GitHub Actions to automate the deployment of my application code, ensuring that every push from VS Code is 
+									seamlessly updated in the live environment, while maintaining a stable, "zero-drift" infrastructure through controlled Terraform updates.</p>
+
+								<p>To align with industry best practices, I refactored my infrastructure from a flat structure into two distinct logical layers: a Frontend tier for static assets and a Backend tier 
+									for API logic and data. By moving the Azure Cosmos DB into the same Resource Group as the Azure Function, I created a cohesive "Data & Logic" service boundary that simplified IAM 
+									(Identity and Access Management) and improved overall manageability. Since moving resources in the Azure Portal creates "state drift" in Terraform, I executed a complex State 
+									Migration Workflow to prevent data loss; this involved using terraform state rm to release the database from the Frontend state and terraform import to re-parent the account, SQL 
+									containers, and RBAC roles into the Backend module. Despite shell-specific path conversion challenges in Git Bash, I successfully achieved a 100% stable, zero-downtime migration that 
+									preserved all existing visitor data while establishing a professional, service-oriented architecture.</p>
+
+								<p></p>	
+								<hr />
+
 								<h3>Professional</h3>
-								<p>I have over 10 years of experience in Telecommunications. I transitioned into IT and have since worked as a MSP technician, an IT Analyst and a Project Engineer. 
+								<p>I have over 10 years of experience in Telecommunications. I transitioned into IT about 4 years ago Sand have since worked as a MSP technician, an IT Analyst and a Project Engineer. 
 									Skilled in Infrastructure-as-Code (IaC), containerization (Docker, Kubernetes), CI/CD, and cloud migrations. Experienced in optimizing infrastructure costs and 
 									improving system performance. Certified in Azure and continuously expanding expertise in AWS, scripting, monitoring, and DevOps best practices. I am always eager 
 									to adopt new technologies and contribute to innovative cloud solutions. Seeking a collaborative opportunity, in a fast-paced environment where my attention to detail, 
 									motivation, and resourcefulness can have a meaningful impact.</p>
 
 								<p></p>
-
 								<hr />
 
-								<h4>Leisure</h4>
-								<p>Always learning new skills and working on deploying Azure and AWS services, labbing and automation scripting. Staying active by walking and playing 
-									badminton in the summer, with family. I enjoy spending time with family and friends. I love to travel and annually take a trip with my wife Jackie. 
-									We've vacationed in France, Mexico and the DR to name a few.</p>
+								<h3>Leisure</h3>
+								<p>When I’m not labbing in the cloud or automating Azure and AWS services, I prioritize staying active and spending time with my family. I’m a firm believer in continuous 
+									learning—whether it's mastering a new scripting language or exploring a new culture. My wife, Jackie, and I share a passion for travel; our annual adventures have taken 
+									us from the historical streets of France to the coasts of Mexico and the Dominican Republic. In the summer, you’ll likely find me at a pool, playing badminton or enjoying 
+									a long walk with friends and family.</p>
 
 								<p></p>
 

@@ -35,32 +35,6 @@ moved {
   to   = azurerm_cdn_frontdoor_origin.frontdoor-origin
 }
 
-# Cosmos DB Stack
-moved {
-  from = azurerm_cosmosdb_account.res-8
-  to   = azurerm_cosmosdb_account.cosmosdb-account
-}
-
-moved {
-  from = azurerm_cosmosdb_sql_database.res-9
-  to   = azurerm_cosmosdb_sql_database.cosmos-sqldb
-}
-
-moved {
-  from = azurerm_cosmosdb_sql_container.res-10
-  to   = azurerm_cosmosdb_sql_container.cosmos-sqlcontainer
-}
-
-moved {
-  from = azurerm_cosmosdb_sql_role_definition.res-11
-  to   = azurerm_cosmosdb_sql_role_definition.cosmos-role-dreader
-}
-
-moved {
-  from = azurerm_cosmosdb_sql_role_definition.res-12
-  to   = azurerm_cosmosdb_sql_role_definition.cosmos-role-dcontributor
-}
-
 # Storage Stack
 moved {
   from = azurerm_storage_account.res-15

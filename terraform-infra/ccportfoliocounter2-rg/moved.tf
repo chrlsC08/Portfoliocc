@@ -62,3 +62,29 @@ moved {
   from = azurerm_app_service_custom_hostname_binding.res-16
   to   = azurerm_app_service_custom_hostname_binding.func-servicebinding
 }
+
+# Cosmos DB Stack
+moved {
+  from = azurerm_cosmosdb_account.res-8
+  to   = azurerm_cosmosdb_account.cosmosdb-account
+}
+
+moved {
+  from = azurerm_cosmosdb_sql_database.res-9
+  to   = azurerm_cosmosdb_sql_database.cosmos-sqldb
+}
+
+moved {
+  from = azurerm_cosmosdb_sql_container.res-10
+  to   = azurerm_cosmosdb_sql_container.cosmos-sqlcontainer
+}
+
+moved {
+  from = azurerm_cosmosdb_sql_role_definition.res-11
+  to   = azurerm_cosmosdb_sql_role_definition.cosmos-role-dreader
+}
+
+moved {
+  from = azurerm_cosmosdb_sql_role_definition.res-12
+  to   = azurerm_cosmosdb_sql_role_definition.cosmos-role-dcontributor
+}

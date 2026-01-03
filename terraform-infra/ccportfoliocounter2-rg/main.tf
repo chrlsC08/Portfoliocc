@@ -147,3 +147,62 @@ resource "azurerm_monitor_action_group" "monitor-actiongroup" {
     azurerm_resource_group.backend-rg
   ]
 }
+resource "azurerm_cosmosdb_account" "cosmosdb-account" {
+  location            = "eastus"
+  name                = "azurerportfolio"
+  offer_type          = "Standard"
+  resource_group_name = "ccportfoliocounter2"
+  tags = {
+    defaultExperience       = "Core (SQL)"
+    hidden-cosmos-mmspecial = ""
+  }
+  consistency_policy {
+    consistency_level = "Session"
+  }
+  geo_location {
+    failover_priority = 0
+    location          = "eastus"
+  }
+  depends_on = [
+    azurerm_resource_group.backend-rg
+  ]
+}
+resource "azurerm_cosmosdb_sql_database" "cosmos-sqldb" {
+  account_name        = "azurerportfolio"
+  name                = "AzurePortfolio"
+  resource_group_name = "ccportfoliocounter2"
+  depends_on = [
+    azurerm_cosmosdb_account.cosmosdb-account
+  ]
+}
+resource "azurerm_cosmosdb_sql_container" "cosmos-sqlcontainer" {
+  account_name          = "azurerportfolio"
+  database_name         = "AzurePortfolio"
+  name                  = "Counter"
+  partition_key_paths   = ["/id"]
+  partition_key_version = 2
+  resource_group_name   = "ccportfoliocounter2"
+  depends_on = [
+    azurerm_cosmosdb_sql_database.cosmos-sqldb
+  ]
+}
+resource "azurerm_cosmosdb_sql_role_definition" "cosmos-role-dreader" {
+  account_name        = "azurerportfolio"
+  assignable_scopes   = [azurerm_cosmosdb_account.cosmosdb-account.id]
+  name                = "Cosmos DB Built-in Data Reader"
+  resource_group_name = "ccportfoliocounter2"
+  type                = "BuiltInRole"
+  permissions {
+    data_actions = ["Microsoft.DocumentDB/databaseAccounts/readMetadata", "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery", "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read", "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed"]
+  }
+}
+resource "azurerm_cosmosdb_sql_role_definition" "cosmos-role-dcontributor" {
+  account_name        = "azurerportfolio"
+  assignable_scopes   = [azurerm_cosmosdb_account.cosmosdb-account.id]
+  name                = "Cosmos DB Built-in Data Contributor"
+  resource_group_name = "ccportfoliocounter2"
+  type                = "BuiltInRole"
+  permissions {
+    data_actions = ["Microsoft.DocumentDB/databaseAccounts/readMetadata", "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*", "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*"]
+  }
+}

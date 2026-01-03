@@ -54,65 +54,6 @@ resource "azurerm_cdn_frontdoor_origin" "frontdoor-origin" {
   origin_host_header             = azurerm_storage_account.storage-account.primary_web_host
   weight                         = 1000
 }
-resource "azurerm_cosmosdb_account" "cosmosdb-account" {
-  location            = "eastus"
-  name                = "azurerportfolio"
-  offer_type          = "Standard"
-  resource_group_name = "onlineportfolio-rg"
-  tags = {
-    defaultExperience       = "Core (SQL)"
-    hidden-cosmos-mmspecial = ""
-  }
-  consistency_policy {
-    consistency_level = "Session"
-  }
-  geo_location {
-    failover_priority = 0
-    location          = "eastus"
-  }
-  depends_on = [
-    azurerm_resource_group.frontend-rg
-  ]
-}
-resource "azurerm_cosmosdb_sql_database" "cosmos-sqldb" {
-  account_name        = "azurerportfolio"
-  name                = "AzurePortfolio"
-  resource_group_name = "onlineportfolio-rg"
-  depends_on = [
-    azurerm_cosmosdb_account.cosmosdb-account
-  ]
-}
-resource "azurerm_cosmosdb_sql_container" "cosmos-sqlcontainer" {
-  account_name          = "azurerportfolio"
-  database_name         = "AzurePortfolio"
-  name                  = "Counter"
-  partition_key_paths   = ["/id"]
-  partition_key_version = 2
-  resource_group_name   = "onlineportfolio-rg"
-  depends_on = [
-    azurerm_cosmosdb_sql_database.cosmos-sqldb
-  ]
-}
-resource "azurerm_cosmosdb_sql_role_definition" "cosmos-role-dreader" {
-  account_name        = "azurerportfolio"
-  assignable_scopes   = [azurerm_cosmosdb_account.cosmosdb-account.id]
-  name                = "Cosmos DB Built-in Data Reader"
-  resource_group_name = "onlineportfolio-rg"
-  type                = "BuiltInRole"
-  permissions {
-    data_actions = ["Microsoft.DocumentDB/databaseAccounts/readMetadata", "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery", "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read", "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed"]
-  }
-}
-resource "azurerm_cosmosdb_sql_role_definition" "cosmos-role-dcontributor" {
-  account_name        = "azurerportfolio"
-  assignable_scopes   = [azurerm_cosmosdb_account.cosmosdb-account.id]
-  name                = "Cosmos DB Built-in Data Contributor"
-  resource_group_name = "onlineportfolio-rg"
-  type                = "BuiltInRole"
-  permissions {
-    data_actions = ["Microsoft.DocumentDB/databaseAccounts/readMetadata", "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*", "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*"]
-  }
-}
 resource "azurerm_storage_account" "storage-account" {
   account_replication_type         = "LRS"
   account_tier                     = "Standard"
@@ -148,3 +89,4 @@ resource "azurerm_storage_account_queue_properties" "storage-accountqueue" {
     version = "1.0"
   }
 }
+
