@@ -90,10 +90,32 @@
 									<a href="https://medium.com/@charlesc20/from-local-flask-app-to-docker-compose-on-ubuntu-vm-a-journey-of-ai-collaboration-and-3889a4dd7a1a" class="button primary">Click for more details</a>
 								<p></p>	
 
-								<hr />
+								<h4>Phase 2: Local to Cloud Migration - Auto-Scaling Flask APP with Terraform & Docker</h4>
+								<p>In Phase 2, I evolved the project from a single-point-of-failure VM into a highly available, distributed architecture on AWS. This phase focused on transitioning from manual server management 
+									to Infrastructure as Code (IaC), using Terraform to architect a production-grade environment. By defining the entire stack—including a custom VPC, multi-AZ subnets, and an Application Load 
+									Balancer (ALB). I shifted the focus from merely "running an app" to "orchestrating a resilient system."</p>
+									
+								<p>A key achievement of this phase was the implementation of a sophisticated deployment pipeline. I moved to a registry-based workflow by pushing versioned images to Docker Hub and utilizing Docker Compose 
+									with production-specific overrides. To bridge the gap between infrastructure and software, I utilized EC2 User Data scripts to automate the "Day 0" operations: updating the OS, installing the Docker engine, 
+									and pulling containers upon instance launch. This ensures that every server in the Auto Scaling Group is an identical, disposable unit, eliminating "configuration drift."</p>
+
+								<h4>Technical Milestones & Resilience</h4>
+    							<ul>
+        						<li><strong>Infrastructure as Code:</strong> Provisioned 13+ interconnected resources (IGW, Route Tables, Security Groups) using modular Terraform code.</li>
+        						<li><strong>Elasticity:</strong> Configured a Launch Template and Auto Scaling Group to maintain a desired state of two EC2 instances, ensuring the app stays online even if a data center or instance fails.</li>
+        						<li><strong>Network Security:</strong> Implemented a secure networking layer where the application remains in private-facing subnets, accessible only through a managed ALB.</li>
+        						<li><strong>Standardized Deployment:</strong> Integrated the AWS CLI for secure credential management and SSH key pair automation, streamlining the transition from local development to cloud-scale deployment.</li>
+    							</ul>
+
+    							<p>This milestone represents a pivot from traditional sysadmin tasks to <strong>Cloud Engineering</strong>. It demonstrates my ability to build self-healing infrastructure that decouples application logic from hardware, 
+									providing a professional, DNS-accessible entry point for users while maintaining a robust, automated backend.</p>
+
+								<a href="https://medium.com/@charlesc20/deploying-a-highly-available-flask-app-on-aws-with-terraform-and-docker-f078bd2700c6?postPublishedType=initial" class="button primary">Click for more details</a>
+								<p></p>
+								<hr/>
 
 								<h3>Professional</h3>
-								<p>I have over 10 years of experience in Telecommunications. I transitioned into IT about 4 years ago and have since worked as a MSP technician, an IT Analyst and a Project Engineer. 
+								<p>I transitioned into IT about 4 years ago and have since worked as a MSP technician, an IT Analyst and a Project Engineer. 
 									Skilled in Infrastructure-as-Code (IaC), containerization (Docker, Kubernetes), CI/CD, and cloud migrations. Experienced in optimizing infrastructure costs and 
 									improving system performance. Certified in Azure and continuously expanding expertise in AWS, scripting, monitoring, and DevOps best practices. I am always eager 
 									to adopt new technologies and contribute to innovative cloud solutions. Seeking a collaborative opportunity, in a fast-paced environment where my attention to detail, 
