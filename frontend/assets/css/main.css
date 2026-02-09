@@ -3773,12 +3773,13 @@ input, select, textarea {
 
 /* Main */
 
-	#main > header {
+ 
+		#main > header {
 		padding: 12em 0 10em 0 ;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -3924,11 +3925,12 @@ input, select, textarea {
 
 /* Landing */
 
+
 	body.landing #page-wrapper {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -3946,10 +3948,10 @@ input, select, textarea {
 
 	body.is-mobile.landing #banner,
 	body.is-mobile.landing .wrapper.style4 {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/isometric-devops.jpg");
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -3958,3 +3960,59 @@ input, select, textarea {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+
+/* ==========================================================================
+   Charles Cunningham Jr. - Custom Portfolio Styles
+   ========================================================================== */
+
+/* 1. Header Banner Fix */
+#main > header {
+    background-image: url("../../images/overlay.png"), url("../../images/isometric-devops.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 10em 0;
+}
+
+/* 2. Professional Section Style - 270px (50% larger) & No Border */
+.profile-pic img {
+    border-radius: 50% !important;
+    width: 270px !important;  /* Increased from 180px */
+    height: 270px !important; /* Increased from 180px */
+    object-fit: cover;        /* Ensures the circle remains a perfect circle */
+    border: none !important;  /* Border removed */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Enhanced shadow for depth */
+    margin-right: 2.5em;      /* Increased spacing from text */
+}
+
+/* 3. Leisure Section Style - 270px (50% larger) & No Border */
+.leisure-pic img {
+    border-radius: 50%;
+    width: 270px !important;  /* Increased from 180px */
+    height: 270px !important; /* Increased from 180px */
+    object-fit: cover;        /* Ensures the circle remains a perfect circle */
+    border: none !important;  /* Border removed */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Enhanced shadow for depth */
+    margin-left: 2.5em;       /* Increased spacing from text */
+    margin-right: 1.5em;      /* Pulls image inward from the right edge */
+}
+
+/* 4. Container Fix 
+   Ensures the white section expands to fit the much larger images */
+.bio-container {
+    display: flow-root;
+    margin-bottom: 2em;
+    text-align: left; /* Keeps text aligned for the homepage layout */
+}
+
+/* 5. Mobile & Tablet Fix 
+/* Responsive Fix for Home and About */
+@media screen and (max-width: 736px) {
+    .profile-pic img {
+        width: 200px !important;
+        height: 200px !important;
+        float: none !important;
+        margin: 0 auto 1.5em auto !important;
+        display: block;
+    }
+}

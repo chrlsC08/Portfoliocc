@@ -60,6 +60,7 @@
 									in VS Code stays perfectly synced with Azure. Currently, I use GitHub Actions to automate the deployment of my application code, ensuring that every push from VS Code is 
 									seamlessly updated in the live environment, while maintaining a stable, "zero-drift" infrastructure through controlled Terraform updates.</p>
 
+
 								<p>To align with industry best practices, I refactored my infrastructure from a flat structure into two distinct logical layers: a Frontend tier for static assets and a Backend tier 
 									for API logic and data. By moving the Azure Cosmos DB into the same Resource Group as the Azure Function, I created a cohesive "Data & Logic" service boundary that simplified IAM 
 									(Identity and Access Management) and improved overall manageability. Since moving resources in the Azure Portal creates "state drift" in Terraform, I executed a complex State 
@@ -114,24 +115,37 @@
 								<p></p>
 								<hr/>
 
-								<h3>Professional</h3>
-								<p>I transitioned into IT about 4 years ago and have since worked as a MSP technician, an IT Analyst and a Project Engineer. 
-									Skilled in Infrastructure-as-Code (IaC), containerization (Docker, Kubernetes), CI/CD, and cloud migrations. Experienced in optimizing infrastructure costs and 
-									improving system performance. Certified in Azure and continuously expanding expertise in AWS, scripting, monitoring, and DevOps best practices. I am always eager 
-									to adopt new technologies and contribute to innovative cloud solutions. Seeking a collaborative opportunity, in a fast-paced environment where my attention to detail, 
-									motivation, and resourcefulness can have a meaningful impact.</p>
-
+								<section>
+    							<h3>Professional</h3>
+    							<div class="bio-container">
+        						<span class="image left profile-pic">
+            						<img src="../frontend/images/ChatGPTCaricature2.png" alt="Charles Cunningham Jr" />
+        							</span>
+        						<p>I transitioned into IT about 4 years ago and have since worked as a MSP technician, an IT Analyst and a Project Engineer. 
+        							Skilled in Infrastructure-as-Code (IaC), containerization (Docker, Kubernetes), CI/CD, and cloud migrations. 
+        							Experienced in optimizing infrastructure costs and improving system performance. 
+        							Certified in Azure and continuously expanding expertise in AWS, scripting, monitoring, and DevOps best practices. 
+        							I am always eager to adopt new technologies and contribute to innovative cloud solutions.</p>
+    							</div>
 								<p></p>
-								<hr />
-
-								<h3>Leisure</h3>
-								<p>When I’m not labbing, I prioritize staying active and spending time with my family. I’m a firm believer in continuous 
-									learning, whether it's mastering a new scripting language or exploring a new culture. My wife, Jackie, and I share a passion for travel; our annual adventures have taken 
-									us from the historical streets of France to the coasts of Mexico and the Dominican Republic. In the summer, you’ll likely find me at a pool, playing badminton or enjoying 
-									a long walk with friends and family.</p>
-
 								<p></p>
-
+								<hr/>
+								</section>
+								
+								<section>
+    							<h3>Leisure</h3>
+    							<div class="bio-container">
+        						<span class="image right leisure-pic">
+            					<img src="../frontend/images/ChatGPTCoupleCaricature2.png" alt="Vacation" />
+        						</span>
+        						<p>When I’m not labbing, I prioritize staying active and spending time with my family. I’m a firm believer in continuous 
+        						learning, whether it's mastering a new scripting language or exploring a new culture. My wife, Jackie, and I share a passion for travel; our annual adventures have taken 
+        						us from the historical streets of France to the coasts of Mexico and the Dominican Republic. In the summer, you’ll likely find me at a pool, playing badminton or enjoying 
+        						a long walk with friends and family.</p>
+								<p></p>
+								</div>
+						</section>
+						<hr/>
 							</div>
 						</section>
 					</article>
