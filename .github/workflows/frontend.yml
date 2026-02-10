@@ -20,5 +20,5 @@ jobs:
             az storage blob upload-batch \
               --connection-string "${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" \
               -d '$web' \
-              -s ./frontend \
+              -s ./frontend/. \
               --overwrite
