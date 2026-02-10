@@ -4005,14 +4005,36 @@ input, select, textarea {
     text-align: left; /* Keeps text aligned for the homepage layout */
 }
 
-/* 5. Mobile & Tablet Fix 
-/* Responsive Fix for Home and About */
+/* Mobile Responsiveness Fix */
 @media screen and (max-width: 736px) {
-    .profile-pic img {
-        width: 200px !important;
-        height: 200px !important;
+    /* 1. Reset the container to stack vertically */
+    .bio-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important; /* Optional: centers text too */
+    }
+
+    /* 2. Style the image spans to stop floating */
+    .profile-pic, .leisure-pic {
         float: none !important;
-        margin: 0 auto 1.5em auto !important;
-        display: block;
+        margin: 0 0 1.5em 0 !important; /* Adds space between image and text */
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    /* 3. Scale the images for mobile screens */
+    .profile-pic img, .leisure-pic img {
+        width: 250px !important;  /* Slightly smaller for mobile fit */
+        height: 250px !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+    
+    /* 4. Ensure lists don't have weird padding on mobile */
+    .bio-container ul {
+        text-align: left; /* Keeps your tech list readable */
+        display: inline-block;
+        margin: 0 auto;
     }
 }
