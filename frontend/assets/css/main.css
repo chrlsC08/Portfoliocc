@@ -4005,36 +4005,41 @@ input, select, textarea {
     text-align: left; /* Keeps text aligned for the homepage layout */
 }
 
-/* Mobile Responsiveness Fix */
+/* ==========================================================================
+   Mobile Centering Fix (Phone Screens)
+   ========================================================================== */
 @media screen and (max-width: 736px) {
-    /* 1. Reset the container to stack vertically */
+    /* 1. Force the container to stack vertically and center everything */
     .bio-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        text-align: center !important; /* Optional: centers text too */
-    }
-
-    /* 2. Style the image spans to stop floating */
-    .profile-pic, .leisure-pic {
-        float: none !important;
-        margin: 0 0 1.5em 0 !important; /* Adds space between image and text */
-        width: 100% !important;
         text-align: center !important;
     }
 
-    /* 3. Scale the images for mobile screens */
+    /* 2. Kill the floats that are pushing images left/right */
+    .image.left, .image.right, .profile-pic, .leisure-pic {
+        float: none !important;
+        margin: 0 auto 1.5em auto !important; /* Centers horizontally and adds bottom gap */
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+    }
+
+    /* 3. Scale the actual image for mobile fit */
     .profile-pic img, .leisure-pic img {
-        width: 250px !important;  /* Slightly smaller for mobile fit */
-        height: 250px !important;
+        width: 280px !important;  /* Adjust size as needed for mobile */
+        height: 280px !important;
         margin: 0 auto !important;
         display: block !important;
     }
-    
-    /* 4. Ensure lists don't have weird padding on mobile */
+
+    /* 4. Ensure the list on the index page stays legible but centered */
     .bio-container ul {
-        text-align: left; /* Keeps your tech list readable */
+        text-align: left; 
         display: inline-block;
-        margin: 0 auto;
+        padding: 0;
+        margin: 1em 0 0 0;
     }
 }
